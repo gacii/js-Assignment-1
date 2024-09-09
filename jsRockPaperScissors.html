@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors game</title>
+    <script>
+        
+        function getPlayerChoice(){
+           let a=prompt("Enter Rock Paper or Scissors");
+           let b=a[0].toUpperCase();
+           c=a.slice(1).toLowerCase();
+           let final=b+c;
+           return final;
+        }
+
+
+        function getComputerChoice(){
+            let b = Math.random()*100;
+            if (b<=33) return "Rock";
+            if (b>33 && b<=67) return "Paper";
+            if(b>67) return "Scissors";
+        }
+
+
+        let brPlayer=0;
+        let brComputer=0;
+
+        for(let i=0;i<5;i++){
+
+        let player=getPlayerChoice();
+        let computer=getComputerChoice();
+        console.log(console.log(player, " - ",computer));
+
+        if(player=="Rock" && computer=="Scissors")
+            brPlayer=brPlayer+1;
+        if(player=="Paper" && computer=="Rock")
+            brPlayer=brPlayer+1;
+        if(player=="Scissors" && computer=="Paper")
+            brPlayer=brPlayer+1;
+        console.log("Score for player: ", brPlayer);
+
+
+        if(computer=="Rock" && player=="Scissors")
+            brComputer=brComputer+1;
+        if(computer=="Paper" && player=="Rock")
+            brComputer=brComputer+1;
+        if(computer=="Scissors" && player=="Paper")
+            brComputer=brComputer+1;
+        console.log("Score for computer: ",brComputer);
+        }
+
+        if(brPlayer>brComputer) console.log("Player wins! ",brPlayer, " - ",brComputer);
+        if(brPlayer<brComputer) console.log("Computer wins! ",brComputer, " - ",brPlayer);
+        if(brPlayer==brComputer) console.log("It's a tie! ",brPlayer, " - ",brComputer);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
